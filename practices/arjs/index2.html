@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Practice: arjs</title>
+	<script src="https://aframe.io/releases/1.0.0/aframe.min.js"></script>
+	<script src="https://raw.githack.com/jeromeetienne/AR.js/2.1.4/aframe/build/aframe-ar.js"></script>
+	<script type="module" src="main.mjs"></script>
+</head>
+
+<!-- https://au.gmented.com/app/marker/marker.php -->
+<body>
+	<!-- we add detectionMode and matrixCodeType to tell AR.js to recognize barcode markers -->
+	<a-scene embedded artoolkit  arjs='debugUIEnabled: false; detectionMode: mono_and_matrix; matrixCodeType: 3x3;'>		
+		<a-box position='0 0.5 0' material='color: yellow;'></a-box>
+		<!-- not working with barcode, I need do more tests -->
+		<a-marker-camera preset='hiro'><a-marker-camera>
+	</a-scene>	
+</body>
+
+</html>

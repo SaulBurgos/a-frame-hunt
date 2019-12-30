@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Practice: arjs</title>
+	<script src="https://aframe.io/releases/1.0.0/aframe.min.js"></script>
+	<script src="https://raw.githack.com/jeromeetienne/AR.js/2.1.4/aframe/build/aframe-ar.js"></script>
+	<script>
+        THREEx.ArToolkitContext.baseURL = 'https://jeromeetienne.github.io/AR.js/three.js/'
+    </script>
+	<script type="module" src="main.mjs"></script>
+</head>
+
+<!-- https://au.gmented.com/app/marker/marker.php -->
+<body>
+	<a-scene
+        cursor='rayOrigin: mouse; fuse: true; fuseTimeout: 0;'
+        raycaster="objects: [gps-entity-place];" gps-camera-debug  
+		arjs='sourceType: webcam; debugUIEnabled: false;'>
+
+        <a-camera gps-camera rotation-reader>
+		</a-camera>
+
+		<a-box color="yellow" gps-entity-place="latitude: 12.1983186; longitude: -86.3894355"/>
+		<a-box color="green" gps-entity-place="latitude: 12.197187; longitude: -86.389833"/>
+		<a-box color="red" gps-entity-place="latitude: 12.197025; longitude: -86.389502"/>
+
+	</a-scene>	
+</body>
+
+</html>
