@@ -3,7 +3,7 @@
 
 <head>
 	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
 	<title>Practice: arjs</title>
 	<script src="https://aframe.io/releases/1.0.0/aframe.min.js"></script>
@@ -24,9 +24,12 @@
         <a-camera gps-camera rotation-reader>
 		</a-camera>
 
-		<a-box color="yellow" gps-entity-place="latitude: 12.1983186; longitude: -86.3894355"/>
-		<a-box color="green" gps-entity-place="latitude: 12.197187; longitude: -86.389833"/>
-		<a-box color="red" gps-entity-place="latitude: 12.197025; longitude: -86.389502"/>
+		<!-- pool -->
+		<a-box color="blue" gps-entity-place="latitude: 12.074695; longitude: -86.331650"/>
+		<!-- parking -->
+		<a-box color="red" gps-entity-place="latitude: 12.074411; longitude: -86.330759"/> 
+		<!-- terrace -->
+		<a-box color="red" gps-entity-place="latitude: 12.074382; longitude: -86.331035"/>
 
 	</a-scene>	
 </body>

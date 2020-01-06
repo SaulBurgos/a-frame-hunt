@@ -3,7 +3,10 @@
 
 <head>
 	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	
+	<!-- https://github.com/jeromeetienne/AR.js/issues/369 -->
+	<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0,initial-scale=1.0">
+
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
 	<title>Practice: arjs</title>
 	<script src="https://aframe.io/releases/1.0.0/aframe.min.js"></script>
@@ -14,7 +17,7 @@
 <!-- https://au.gmented.com/app/marker/marker.php -->
 <body>
 	<!-- we add detectionMode and matrixCodeType to tell AR.js to recognize barcode markers -->
-	<a-scene embedded arjs='sourceType: webcam; debugUIEnabled: false; detectionMode: mono_and_matrix; matrixCodeType: 3x3;'>
+	<a-scene embedded arjs='sourceType: webcam; debugUIEnabled: false; detectionMode: mono_and_matrix; matrixCodeType: 3x3; selectCamera: true'>
 		<a-assets>
 			<a-asset-item id="animated-asset" src="https://raw.githubusercontent.com/nicolocarpignoli/nicolocarpignoli.github.io/master/ar-playground/models/CesiumMan.gltf"></a-asset-item>
 		</a-assets>
