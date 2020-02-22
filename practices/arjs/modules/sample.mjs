@@ -5,7 +5,7 @@ class SampleLogic {
     }
 
     test() {
-        console.log('test sample module');
+        console.log('saul burgos');
     }
 }
 
