@@ -12,9 +12,44 @@
 	<title>Practice: arjs</title>
 	<script src="https://aframe.io/releases/1.0.0/aframe.min.js"></script>
 	<script src="https://raw.githack.com/jeromeetienne/AR.js/2.1.4/aframe/build/aframe-ar.js"></script>
-	<script type="module" src="main.mjs"></script>
+	<!-- <script type="module" src="main.mjs"></script> -->
 	<script src="https://code.jquery.com/jquery-3.4.1.min.js"
 		integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+
+		<script>
+
+			function calculateAframeDimmension(width, height) {
+				// image width = 987, height = 739
+				// aspect ratio = w/h = 987/739 = 1.33		
+				// assuming 987 px = 1 m
+				// expected width of image in VR = 2.5 m
+				// height of image in VR = 2.5/1.33 = 1.87
+
+				var aspectRatio = width / height;
+				var expectedWithOnVR = 2; //assuming 
+				var elementHeight = expectedWithOnVR / aspectRatio;
+
+				return {
+					width: expectedWithOnVR,
+					height: elementHeight
+				}
+
+			}
+
+			$(document).ready(function () {
+
+				document.querySelector('#portrait-image').onload = function () {
+					var dimensions = calculateAframeDimmension(this.width,this.height);
+					document.querySelector('#space').setAttribute('width', dimensions.width);
+					document.querySelector('#space').setAttribute('height', dimensions.height);
+				};
+
+				document.querySelector('#square-image').src = 'image/square.jpg';
+				document.querySelector('#portrait-image').src = 'image/portrait.jpg';
+
+			});
+
+		</script>
 </head>
 
 <!-- https://au.gmented.com/app/marker/marker.php -->
@@ -33,16 +68,21 @@
 
 		<a-marker preset="hiro">
 			<a-box position='0 0.5 0' material='color: yellow;'></a-box>
-		</a-marker>
-
-
+		</a-marker>		
 
 		<a-marker type="barcode" value="7">
 			<a-circle color="#CCC" radius="0.175" rotation="-90 180 0" position="1.25 0 -1.25"></a-circle>
-			<a-text value="delete" rotation="-90 0 0" position="1.056 0 -0.137" scale="0.8 0.8 0.8"></a-text>
+			<a-text value="delete" rotation="-90 0 0" position="1.056 0 -0.137" scale="0.7 0.7 0.7"></a-text>
 			<a-circle color="#CCC" radius="0.175" rotation="-90 180 0" position="1.25 0 -0.45"></a-circle>
-			<a-text value="move" rotation="-90 0 0" position="1.088 0 -0.943" scale="0.8 0.8 0.8"></a-text>
+			<a-text value="move" rotation="-90 0 0" position="1.088 0 -0.943" scale="0.7 0.7 0.7"></a-text>
 			<a-image id="space" src="#portrait-image" rotation="90 180 0" position="0 0 0"></a-image>
+
+			<a-text value="Add space" rotation="-90 0 0" position="0.24 0 1.60" scale="0.7 0.7 0.7"></a-text>
+
+			<a-entity id="arrow" rotation="0 90 0"  position="-1.014 0 1.624" scale="0.3 0.3 0.3">
+				<a-triangle rotation="-90 0 0" vertex-a="0 -0.030 0" vertex-b="-0.330 -0.500 0" vertex-c="0.330 -0.500 0"></a-triangle>
+				<a-plane height="0.55" width="0.28" rotation="-90 0 0" position="0 0 0.76"></a-plane>
+			</a-entity>
 		</a-marker>
 
 		<!-- value is the value added on the tool generator, and it need border white for better recognition -->
